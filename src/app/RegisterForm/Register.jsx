@@ -1,9 +1,9 @@
 const Register = async(useremail, password, username) => {
   const url = 'https://21qjx3x0-3004.uks1.devtunnels.ms/auth/register';
   const data = {
-    useremail: useremail,
-    password: password,
-    username: username,  
+    username: "jon",
+    password: "123456",
+    email: "test@mail.com", 
   };
   
   try {
