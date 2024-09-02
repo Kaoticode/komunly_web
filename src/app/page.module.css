@@ -5,6 +5,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  background: linear-gradient(135deg, #1e0933 0%, #0c0628 100%);
 }
 
 .description {

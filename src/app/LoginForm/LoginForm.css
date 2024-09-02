@@ -1,0 +1,68 @@
+.login-form {
+    /* Estilos para el formulario en general */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(233, 226, 226, 0.3);
+    width: 30rem;
+    Background-color: transparent;
+}
+
+.form-title {
+    /* Estilos para el encabezado del formulario */
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+li::marker {
+    color: rgb(18, 4, 58);   
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.form-group {
+    /* Estilos para cada grupo de campo */
+    margin-bottom: 15px;
+  }
+  
+
+label {
+    /* Estilos para las etiquetas */
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+  }
+  
+input {
+    /* Estilos para los campos de entrada */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+label{
+  margin: .5rem 0;
+}
+
+span{
+  width: max-content;
+  display: block;
+  margin: .5rem 0;
+  border-bottom: solid 1px wheat;
+  cursor: pointer;
+}
+
+.submit-button {
+    /* Estilos para el botón de enviar */
+    width: 100%;
+    background-color: #53B0F9;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
