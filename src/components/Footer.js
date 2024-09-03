@@ -2,122 +2,125 @@ export function Footer() {
   const COMMUNITY_LINKS = [
     {
       link: 'K Komunly',
-      url: ''
+      url: '#Komunly'
     },
     {
       link: 'Instagram',
-      url: ''
+      url: '#Instagram'
     },
     {
       link: 'WhatsApp',
-      url: ''
+      url: '#WhatsApp'
     },
     {
       link: 'Email',
-      url: ''
+      url: '#Email'
     },
     {
       link: 'Discord',
-      url: ''
+      url: '#Discord'
     }
   ]
   const USEFUL_LINKS = [
     {
       link: 'Términos y condiciones',
-      url: ''
+      url: '#Términos'
     },
     {
       link: 'Comprar códigos',
-      url: ''
+      url: '#Comprar'
     },
     {
       link: 'Torneos',
-      url: ''
+      url: '#Torneos'
     },
     {
       link: 'Trabaja con nosotros',
-      url: ''
+      url: '#Trabaja'
     }
   ]
   const PROJECTS_LINKS = [
     {
       link: 'Komunly',
-      url: ''
+      url: '#Komunly'
     },
     {
       link: 'Kanticum',
-      url: ''
+      url: '#Kanticum'
     },
     {
       link: 'Información',
-      url: ''
+      url: '#Información'
     },
     {
       link: 'Klickum',
-      url: ''
+      url: '#Klickum'
     }
   ]
   return (
     <footer className='flex gap-8 flex-col border-t-2 border-white py-6 mx-8 mt-20'>
       <div className='flex flex-wrap md:justify-between justify-center gap-8 px-8'>
         <div className='flex flex-col gap-4 w-full justify-center md:w-auto'>
-          <strong className='text-center md:text-left text-base md:text-xl'>
-            Komunly
-          </strong>
-          <p className='text-sm text-center md:text-left md:text-base md:max-w-40'>
+          <strong className='text-center md:text-left text-xl'>Komunly</strong>
+          <p className=' opacity-70 text-sm text-center md:text-left md:text-base md:max-w-40'>
             ¡Bienvenido a Komunly, ponte cómodo y disfruta el espectáculo!
           </p>
         </div>
         <div className='flex flex-col gap-4 w-full md:w-auto'>
-          <strong className='text-center md:text-left text-base md:text-xl'>
+          <strong className='text-center md:text-left text-xl'>
             Comunidad
           </strong>
           <div className='flex flex-col gap-2'>
             {COMMUNITY_LINKS.map((e) => (
-              <a
-                href={e.url}
-                key={e.link}
-                className='text-center md:text-left text-sm md:text-base'
-              >
-                {e.link}
-              </a>
+              <span key={e.link} className='text-center md:text-left'>
+                <a
+                  href={e.url}
+                  key={e.link}
+                  className='relative opacity-70 md:after:bg-white md:after:h-[2px] md:after:w-full md:after:absolute md:after:left-0 md:after:bottom-0 md:after:scale-0 md:hover:after:scale-100 md:after:transition-transform'
+                >
+                  {e.link}
+                </a>
+              </span>
             ))}
           </div>
         </div>
         <div className='flex flex-col gap-4 w-full md:w-auto'>
-          <strong className='text-center md:text-left text-base md:text-xl'>
+          <strong className='text-center md:text-left text-xl'>
             Enlaces útiles
           </strong>
           <div className='flex flex-col gap-2'>
             {USEFUL_LINKS.map((e) => (
-              <a
-                href={e.url}
-                key={e.link}
-                className='text-center md:text-left text-sm md:text-base'
-              >
-                {e.link}
-              </a>
+              <span key={e.link} className='text-center md:text-left'>
+                <a
+                  href={e.url}
+                  key={e.link}
+                  className='relative opacity-70 md:after:bg-white md:after:h-[2px] md:after:w-full md:after:absolute md:after:left-0 md:after:bottom-0 md:after:scale-0 md:hover:after:scale-100 md:after:transition-transform'
+                >
+                  {e.link}
+                </a>
+              </span>
             ))}
           </div>
         </div>
         <div className='flex flex-col gap-4 w-full md:w-auto'>
-          <strong className='text-center md:text-left text-base md:text-xl'>
+          <strong className='text-center md:text-left text-xl'>
             Proyectos
           </strong>
           <div className='flex flex-col gap-2'>
             {PROJECTS_LINKS.map((e) => (
-              <a
-                href={e.url}
-                key={e.link}
-                className='text-center md:text-left text-sm md:text-base'
-              >
-                {e.link}
-              </a>
+              <span key={e.link} className='text-center md:text-left'>
+                <a
+                  href={e.url}
+                  className='relative opacity-70 md:after:bg-white md:after:h-[2px] md:after:w-full md:after:absolute md:after:left-0 md:after:bottom-0 md:after:scale-0 md:hover:after:scale-100 md:after:transition-transform'
+                >
+                  {e.link}
+                </a>
+              </span>
             ))}
           </div>
         </div>
       </div>
-      <span className='flex justify-center text-xs md:text-base border-t-2 border-white pt-2'>
+      <span className='flex justify-center text-sm md:text-base border-t-2 border-white pt-4'>
         Todos los derechos reservados a Kaoticode 2024 ©
       </span>
     </footer>
