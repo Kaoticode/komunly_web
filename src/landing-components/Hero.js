@@ -1,9 +1,13 @@
-import Image from 'next/image'
+"use client";
+
+import React from 'react';
+import Badge from '@/components/Badge';
 import Link from 'next/link'
+import { motion } from 'framer-motion';
 
 export default function Hero() {
     return (
-        
+
         <div className="flex items-center overflow-hidden">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <svg className="absolute -left-[35%] -top-[5%] w-3/4 h-3/4 opacity-30" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -21,13 +25,20 @@ export default function Hero() {
             </div>
             <div className="container mx-auto px-6 py-24 md:py-24 relative z-10">
                 <div className="max-w-3xl mx-auto text-center flex justify-center items-center flex-col">
-                    <p className="text-gray-200 mb-4 text-sm border-2 rounded-2xl w-max p-1 px-3">Bienvenido a Komunly</p>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
-                        La nueva red social diseñada para{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600">
-                            revolucionar
-                        </span>
-                    </h1>
+
+                    <Badge text="Bienvenido a Komunly" />
+                    <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 3, ease: "easeOut" }}
+                    >
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
+                            La nueva red social diseñada para{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600">
+                                revolucionar
+                            </span>
+                        </h1>
+                    </motion.div>
                     <p className="mb-8 text-lg text-gray-300">
                         Nuestra plataforma ofrece una amplia gama de funcionalidades, desde la publicación
                         de contenido multimedia hasta la realización de transferencias entre usuarios y la

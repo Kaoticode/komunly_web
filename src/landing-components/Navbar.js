@@ -34,12 +34,12 @@ export default function Navbar() {
                     </div>
                     <div className="hidden items-center lg:flex lg:gap-x-6">
                         {navigation.map((item) => (
-                            <Link key={item.name} href={item.href} className="text-white leading-6">
+                            <Link key={item.name} href={item.href} className="text-white leading-6 hover:text-[#54b0f9] hover:transition-all">
                                 {item.name}
                             </Link>
                         ))}
 
-                        <Link href="#" className="flex bg-[#54b0f9] shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 hover:bg-secondary duration-300">
+                        <Link href="#" className="flex bg-[#54b0f9] shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:bg-[#296596] hover:-translate-y-1 hover:scale-100 duration-300">
                             Autenticación
                         </Link>
                     </div>
