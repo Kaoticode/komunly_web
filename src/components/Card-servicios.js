@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { CheckIcon } from '@heroicons/react/24/solid'
 
 export default function CardServicios({ title, description }) {
     return (
@@ -12,7 +13,8 @@ export default function CardServicios({ title, description }) {
             transition={{ duration: 1, ease: "easeOut"}}
             viewport={{ once: true, amount: 0.8 }}
         >
-          <h3 className="text-lg font-semibold mb-2">{title}</h3>
+          
+          <h3 className="flex items-center text-lg font-semibold mb-2"> <CheckIcon className='w-5 mr-2'/> {title}</h3>
           <p className="text-sm mb-4">{description}</p>
         </motion.div>
     );

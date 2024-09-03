@@ -10,16 +10,16 @@ export default function Servicios() {
                     description="Comparte imágenes y videos de la mejor calidad con tu comunidad. Conviértete en un Kreator y accede a eventos exclusivos por el mundo de parte de Komunly."
                 />
                 <CardServicios
-                    title="Card Título 2"
-                    description="Texto de ejemplo para la segunda tarjeta. Aquí puedes agregar una descripción breve."
+                    title="Interactua respetuosamente"
+                    description="Aprovecha las funcionalidades que ofrece Komunly para interactuar con los demás usuarios. Es importante que respetes las normas de la comunidad para evitar ser baneado."
                 />
                 <CardServicios
-                    title="Card Título 3"
-                    description="Texto de ejemplo para la tercera tarjeta. Aquí puedes agregar una descripción breve."
+                    title="!Acción, Reacción!"
+                    description="En Komunly, las buenas acciones acciones tienen recompensas. Crear contenido entretenido o de valor, ya sea en forma de imágenes, videos o texto, te permitirá ganar puntos y subir de nivel."
                 />
                 <CardServicios
-                    title="Card Título 4"
-                    description="Texto de ejemplo para la tercera tarjeta. Aquí puedes agregar una descripción breve."
+                    title="Monetiza tu cuenta"
+                    description="Te presentamos los komuns! Una moneda digital que puedes utilizar dentro del universo de Komunly, que podras enviar o recibir de otros usuarios y mucho más."
                 />
             </div>
         </div>
