@@ -1,39 +1,40 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react'
+import Subtitle from "@/components/Subtitle";
+import { useState, useEffect } from "react";
 
 const AnimatedCounter = ({ end, duration }) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let startTime
-    let animationFrame
+    let startTime;
+    let animationFrame;
 
     const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp
-      const progress = timestamp - startTime
-      const percentage = Math.min(progress / duration, 1)
-      const currentCount = Math.floor(end * percentage)
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+      const currentCount = Math.floor(end * percentage);
 
-      setCount(currentCount)
+      setCount(currentCount);
 
       if (percentage < 1) {
-        animationFrame = requestAnimationFrame(animate)
+        animationFrame = requestAnimationFrame(animate);
       }
-    }
+    };
 
-    animationFrame = requestAnimationFrame(animate)
+    animationFrame = requestAnimationFrame(animate);
 
-    return () => cancelAnimationFrame(animationFrame)
-  }, [end, duration])
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration]);
 
-  return count
-}
+  return count;
+};
 
 export default function Counter() {
   return (
     <div className="flex flex-col items-center justify-center my-12">
-      <h2 className="text-2xl mb-8">Estadísticas</h2>
+      <Subtitle text="Estadísticas" />
       <div className="grid grid-cols-2 grid-rows-2 lg:grid-rows-1 lg:grid-cols-4 gap-6">
         <div className="flex flex-col items-center lg:border-r-2">
           <span className="text-6xl font-bold mb-2">
@@ -59,5 +60,5 @@ export default function Counter() {
         </div>
       </div>
     </div>
-  )
+  );
 }
