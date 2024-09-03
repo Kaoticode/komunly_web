@@ -31,7 +31,7 @@ li::marker {
   color: rgb(18, 4, 58);
 }
 
-.flex {
+.flex-register {
   display: flex;
   justify-content: space-between;
 }
@@ -50,7 +50,7 @@ li::marker {
   flex-wrap: wrap;
 }
 
-label {
+.label {
   /* Estilos para las etiquetas */
   display: block;
   margin-bottom: 5px;
@@ -68,7 +68,7 @@ input {
   color: #fff;
 }
 
-span {
+.span {
   width: max-content;
   display: block;
   margin: 0.5rem 0;
@@ -111,7 +111,7 @@ span {
   transform: translateZ(0);
 }
 
-.hidden{
+.hidden-auth{
   display: none;
 }
 

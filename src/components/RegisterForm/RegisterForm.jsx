@@ -16,15 +16,15 @@ const RegisterForm = ({ toggleForm }) => {
     if (response === 200) {
       toggleForm();
       setResponse("");
-      loader.classList.add("hidden");
-      form.classList.remove("hidden");
+      loader.classList.add("hidden-auth");
+      form.classList.remove("hidden-auth");
     }
   }, [response]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loader.classList.remove("hidden");
-    form.classList.add("hidden");
+    loader.classList.remove("hidden-auth");
+    form.classList.add("hidden-auth");
 
     // Aquí iría la lógica para enviar los datos del formulario al backend
     if (password === repeatpassword) {
@@ -36,11 +36,11 @@ const RegisterForm = ({ toggleForm }) => {
 
   return (
     <>
-      <span className="loader hidden spiner"></span>
+      <span className="loader hidden-auth spiner"></span>
       <form onSubmit={handleSubmit} className="login-form card">
         <h2 className="form-title">Registrate</h2>
         <div className="form-group">
-          <label htmlFor="username">Nombre de Usuario:</label>
+          <label htmlFor="username" className="label">Nombre de Usuario:</label>
           <input
             required
             type="text"
@@ -49,7 +49,7 @@ const RegisterForm = ({ toggleForm }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <label htmlFor="useremail">Correo Electrónico:</label>
+        <label htmlFor="useremail" className="label">Correo Electrónico:</label>
         <input
           required
           type="email"
@@ -57,9 +57,9 @@ const RegisterForm = ({ toggleForm }) => {
           value={useremail}
           onChange={(e) => setUseremail(e.target.value)}
         />
-        <div className="form-group flex back">
+        <div className="form-group flex-register back">
           <div className="password-input">
-            <label htmlFor="password">Contraseña:</label>
+            <label htmlFor="password" className="label">Contraseña:</label>
             <input
               required
               type="password"
@@ -70,7 +70,7 @@ const RegisterForm = ({ toggleForm }) => {
             />
           </div>
           <div className="password-input">
-            <label htmlFor="repeatpassword">Repetir Contraseña:</label>
+            <label htmlFor="repeatpassword" className="label">Repetir Contraseña:</label>
             <input
               required
               type="password"
@@ -80,7 +80,7 @@ const RegisterForm = ({ toggleForm }) => {
             />
           </div>
         </div>
-        <span onClick={() => toggleForm()}>
+        <span onClick={() => toggleForm()} className="span">
           Ya tienes una cuenta? Inicia Sesión
         </span>
         <button type="submit" className="submit-button">

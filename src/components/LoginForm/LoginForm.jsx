@@ -14,8 +14,8 @@ const LoginForm = ({ toggleForm }) => {
 
   useEffect(() => {
     if (response === 200) {
-      loader.classList.add("hidden");
-      form.classList.remove("hidden");
+      loader.classList.add("hidden-auth");
+      form.classList.remove("hidden-auth");
       setResponse("");
       console.log("access_token:", access_token);
       console.log("refresh_token:", refresh_token);
@@ -24,8 +24,8 @@ const LoginForm = ({ toggleForm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loader.classList.remove("hidden");
-    form.classList.add("hidden");
+    loader.classList.remove("hidden-auth");
+    form.classList.add("hidden-auth");
     
     // Aquí iría la lógica para enviar los datos del formulario al backend
     Login(username, password, setResponse, setAccess_token, setRefresh_token);
@@ -33,11 +33,11 @@ const LoginForm = ({ toggleForm }) => {
 
   return (
     <>
-      <span className="loader hidden spiner"></span>
+      <span className="loader hidden-auth spiner"></span>
       <form onSubmit={handleSubmit} className="login-form front card ">
         <h2 className="form-title">Inicia Sesión</h2>
         <div className="form-group">
-          <label htmlFor="username">Nombre de Usuario:</label>
+          <label htmlFor="username" className="label">Nombre de Usuario:</label>
           <input
             required
             type="text"
@@ -48,7 +48,7 @@ const LoginForm = ({ toggleForm }) => {
         </div>
         <div className="form-group">
           <div>
-            <label htmlFor="password">Contraseña:</label>
+            <label htmlFor="password" className="label">Contraseña:</label>
             <input
               required
               type="password"
@@ -59,7 +59,7 @@ const LoginForm = ({ toggleForm }) => {
           </div>
         </div>
         <div>
-          <span onClick={() => toggleForm()}>
+          <span onClick={() => toggleForm()} className="span">
             No tienes una cuenta? Registrate
           </span>
           <button type="submit" className="submit-button">
