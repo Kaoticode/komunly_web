@@ -41,6 +41,7 @@ module.exports = {
             ocean: "#20356a", // Azul océano oscuro
             steel: "#647090",    // Azul grisáceo o acero
             sky: "#4b82bb",      // Azul cielo o cerúleo
+            deep: "#1A3642",   // Azul muy oscuro con matices grisáceos
           },
 
           purple: {
@@ -58,7 +59,15 @@ module.exports = {
           green: {
             muted: "#414b48",    // Verde grisáceo oscuro o verde apagado
             sage: "#9cb067",  // Verde oliva claro
-          }
+            deep: "#387E51",   // Verde profundo y vibrante
+          },
+
+          red: {
+            bright: "#FF4C4C",  // Rojo brillante
+            dark: "#B71C1C",    // Rojo oscuro
+            crimson: "#DC143C", // Rojo carmesí
+            deep: "#BF060B",    // Rojo profundo y vibrante
+          },
         }
       }
     },
