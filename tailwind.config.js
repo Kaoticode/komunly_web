@@ -22,7 +22,9 @@ module.exports = {
       animation: {
         disco: 'disco 3s linear infinite',
       },
-
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'], // lista de fuentes disponibles
+      },
       colors: {
         komunly: {
           gray: {
