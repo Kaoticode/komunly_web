@@ -34,12 +34,12 @@ export default function Hero() {
                     >
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
                             La nueva red social diseñada para{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-komunly-fuchsia-medium to-komunly-purple-medium">
                                 revolucionar
                             </span>
                         </h1>
                     </motion.div>
-                    <p className="mb-8 text-lg text-gray-300">
+                    <p className="mb-8 text-lg text-komunly-gray-semilight">
                         Nuestra plataforma ofrece una amplia gama de funcionalidades, desde la publicación
                         de contenido multimedia hasta la realización de transferencias entre usuarios y la
                         creación de eventos.
