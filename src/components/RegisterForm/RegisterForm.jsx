@@ -1,30 +1,35 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Register from "./Register";
 
 const RegisterForm = ({ toggleForm }) => {
+
+  //se generan los estados de usuario y contraseña
   const [username, setUsername] = useState("");
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatpassword, setRepeatpassword] = useState("");
   const [response, setResponse] = useState("");
 
-  const loader = document.querySelector(".loader");
-  const form = document.querySelector(".login-form");
+  //se referencia el spiner y el formulario
+  const loader = useRef();
+  const form = useRef();
 
+  //se ejecuta cuando el estado de respuesta cambia
   useEffect(() => {
     if (response === 200) {
       toggleForm();
       setResponse("");
-      loader.classList.add("hidden-auth");
-      form.classList.remove("hidden-auth");
+      loader.current.classList.add("hidden-auth");
+      form.current.classList.remove("hidden-auth");
     }
   }, [response]);
 
+  // funcion para manejar el envio del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    loader.classList.remove("hidden-auth");
-    form.classList.add("hidden-auth");
+    loader.current.classList.remove("hidden-auth");
+    form.current.classList.add("hidden-auth");
 
     // Aquí iría la lógica para enviar los datos del formulario al backend
     if (password === repeatpassword) {
@@ -36,8 +41,8 @@ const RegisterForm = ({ toggleForm }) => {
 
   return (
     <>
-      <span className="loader hidden-auth spiner"></span>
-      <form onSubmit={handleSubmit} className="login-form card">
+      <span className="loader hidden-auth spiner" ref={loader}></span>
+      <form onSubmit={handleSubmit} className="login-form card" ref={form}>
         <h2 className="form-title">Registrate</h2>
         <div className="form-group">
           <label htmlFor="username" className="label">Nombre de Usuario:</label>

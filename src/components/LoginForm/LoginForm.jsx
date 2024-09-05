@@ -1,31 +1,35 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Login from "./Login.jsx";
 
 const LoginForm = ({ toggleForm }) => {
+  //se generan los estados de usuario y contraseña
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
   const [access_token, setAccess_token] = useState("");
   const [refresh_token, setRefresh_token] = useState("");
 
-  const loader = document.querySelector(".loader");
-  const form = document.querySelector(".login-form");
+  //se referencia el spiner y el formulario
+  const loader = useRef();
+  const form = useRef();
 
+  //se ejecuta cuando el estado de respuesta cambia
   useEffect(() => {
     if (response === 200) {
-      loader.classList.add("hidden-auth");
-      form.classList.remove("hidden-auth");
+      loader.current.classList.add("hidden-auth");
+      form.current.classList.remove("hidden-auth");
       setResponse("");
       console.log("access_token:", access_token);
       console.log("refresh_token:", refresh_token);
     }
   }, [response]);
 
+  // funcion para manejar el envio del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    loader.classList.remove("hidden-auth");
-    form.classList.add("hidden-auth");
+    loader.current.classList.remove("hidden-auth");
+    form.current.classList.add("hidden-auth");
     
     // Aquí iría la lógica para enviar los datos del formulario al backend
     Login(username, password, setResponse, setAccess_token, setRefresh_token);
@@ -33,8 +37,8 @@ const LoginForm = ({ toggleForm }) => {
 
   return (
     <>
-      <span className="loader hidden-auth spiner"></span>
-      <form onSubmit={handleSubmit} className="login-form front card ">
+      <span className="loader hidden-auth spiner" ref={loader}></span>
+      <form onSubmit={handleSubmit} className="login-form front card" ref={form}>
         <h2 className="form-title">Inicia Sesión</h2>
         <div className="form-group">
           <label htmlFor="username" className="label">Nombre de Usuario:</label>

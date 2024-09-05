@@ -1,6 +1,6 @@
 "use client";
-import LoginForm from "../LoginForm/LoginForm";
-import RegisterForm from "../RegisterForm/RegisterForm";
+import LoginForm from "@/components/LoginForm/LoginForm";
+import RegisterForm from "@/components/RegisterForm/RegisterForm";
 import { useState } from "react";
 import "./Auth.css";
 
@@ -9,7 +9,6 @@ const Auth = () => {
 
   const toggleForm = () => {
     setShowLogin(!showLogin);
-    console.log(showLogin);
   };
   return (
     <div className="card-container">
