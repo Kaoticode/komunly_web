@@ -28,6 +28,7 @@ module.exports = {
       colors: {
         komunly: {
           gray: {
+            semilight: "#d1d5db",
             light: "#71717a",  // Un gris más claro
             medium: "#4B5563", // Un gris medio
             dark: "#374151",   // Un gris oscuro
