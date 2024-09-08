@@ -46,7 +46,7 @@ export default function Navbar() {
             ))}
 
             <Link
-              href="#"
+              href="/Auth"
               className="flex bg-[#54b0f9] shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:bg-[#296596] hover:-translate-y-1 hover:scale-100 duration-300"
             >
               Autenticación
@@ -87,7 +87,7 @@ export default function Navbar() {
                 </div>
                 <div className="py-6">
                   <Link
-                    href="#"
+                    href="/Auth"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-[#210246] hover:text-white"
                   >
                     Autenticación
