@@ -38,14 +38,14 @@ export default function BlockedUsers () {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black p-2 sm:p-4 md:p-6">
-      <div className="w-full max-w-md bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-md rounded-lg shadow-xl border border-gray-600">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-komunly-purple-darkest to-komunly-blue-navy p-2 sm:p-4 md:p-6">
+      <div className="w-full max-w-md bg-komunly-blue-deep bg-opacity-40 backdrop-filter backdrop-blur-md rounded-lg shadow-xl border border-komunly-blue-steel">
         <div className="p-3 sm:p-4 md:p-6">
-          <h2 className="flex items-center justify-center text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
-            <UserX className="mr-2 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-gray-200" />
+          <h2 className="flex items-center justify-center text-lg sm:text-xl md:text-2xl font-bold text-komunly-gray-semilight mb-4 sm:mb-6">
+            <UserX className="mr-2 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-komunly-blue-light" />
             Usuarios Bloqueados
           </h2>
-          <ScrollArea className="h-[300px] sm:h-[350px] md:h-[400px] rounded-md border border-gray-500 p-2 sm:p-3 md:p-4 bg-gray-900 bg-opacity-50">
+          <ScrollArea className="h-[300px] sm:h-[350px] md:h-[400px] rounded-md border border-komunly-blue-steel p-2 sm:p-3 md:p-4 bg-komunly-blue-navy bg-opacity-30">
             {blockedUsers.length > 0
               ? (
               <div className="space-y-2 sm:space-y-3">
@@ -55,7 +55,7 @@ export default function BlockedUsers () {
               </div>
                 )
               : (
-              <p className="text-center text-gray-200 text-sm sm:text-base">No hay usuarios bloqueados</p>
+              <p className="text-center text-komunly-gray-semilight text-sm sm:text-base">No hay usuarios bloqueados</p>
                 )}
           </ScrollArea>
           <div className="flex items-center justify-between mt-4 sm:mt-6">
@@ -64,12 +64,12 @@ export default function BlockedUsers () {
               disabled={currentPage === 1}
               size="icon"
               variant="outline"
-              className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 border-gray-500 text-gray-200 hover:bg-gray-600 hover:text-white disabled:opacity-50"
+              className="w-8 h-8 sm:w-10 sm:h-10 bg-komunly-blue-ocean bg-opacity-50 border-komunly-blue-steel text-komunly-gray-semilight hover:bg-komunly-blue-sky hover:bg-opacity-70 hover:text-komunly-gray-semilight disabled:opacity-50"
             >
               <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               <span className="sr-only">Página anterior</span>
             </Button>
-            <span className="text-xs sm:text-sm text-gray-200">
+            <span className="text-xs sm:text-sm text-komunly-gray-semilight">
               Página {currentPage} de {totalPages}
             </span>
             <Button
@@ -77,7 +77,7 @@ export default function BlockedUsers () {
               disabled={currentPage === totalPages}
               size="icon"
               variant="outline"
-              className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 border-gray-500 text-gray-200 hover:bg-gray-600 hover:text-white disabled:opacity-50"
+              className="w-8 h-8 sm:w-10 sm:h-10 bg-komunly-blue-ocean bg-opacity-50 border-komunly-blue-steel text-komunly-gray-semilight hover:bg-komunly-blue-sky hover:bg-opacity-70 hover:text-komunly-gray-semilight disabled:opacity-50"
             >
               <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
               <span className="sr-only">Página siguiente</span>
