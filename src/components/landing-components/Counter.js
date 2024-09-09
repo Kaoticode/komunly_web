@@ -37,26 +37,26 @@ export default function Counter() {
       <Subtitle text="Estadísticas" />
       <div className="grid grid-cols-2 grid-rows-2 lg:grid-rows-1 lg:grid-cols-4 gap-6">
         <div className="flex flex-col items-center lg:border-r-2">
-          <span className="text-6xl font-bold mb-2">
+          <span className="text-5xl lg:text-7xl font-bold mb-2">
             <AnimatedCounter end={1900} duration={2000} />
           </span>
-          <span className="text-sm">Número de usuarios</span>
+          <span className="text-sm lg:text-base">Número de usuarios</span>
         </div>
         <div className="flex flex-col items-center lg:border-r-2">
-          <span className="text-6xl lg:text-6xl font-bold mb-2">
+          <span className="text-5xl lg:text-7xl font-bold mb-2">
             <AnimatedCounter end={1200} duration={2000} />
           </span>
-          <span className="text-sm">Kreators</span>
+          <span className="text-sm lg:text-base">Kreators</span>
         </div>
         <div className="flex flex-col items-center lg:border-r-2">
-          <span className="text-6xl font-bold mb-2">
+          <span className="text-5xl lg:text-7xl font-bold mb-2">
             <AnimatedCounter end={300} duration={2000} />
           </span>
-          <span className="text-sm">Número de Verificados</span>
+          <span className="text-sm lg:text-base">Número de Verificados</span>
         </div>
         <div className="flex flex-col items-center">
-          <span className="text-6xl font-bold mb-2">Estado</span>
-          <span className="text-sm">Funcionando</span>
+          <span className="text-5xl lg:text-7xl font-bold mb-2">Estado</span>
+          <span className="text-sm lg:text-base">Funcionando</span>
         </div>
       </div>
     </div>

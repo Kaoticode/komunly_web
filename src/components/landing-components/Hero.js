@@ -79,3 +79,8 @@ export default function Hero() {
               Entrar desde el navegador
             </Link>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
