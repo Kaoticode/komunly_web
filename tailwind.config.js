@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
+    darkMode: ["class"],
+    content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,7 +10,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
+  	extend: {
       backgroundImage: {
         'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
       },
@@ -72,7 +73,9 @@ module.exports = {
         }
       }
     },
+    
+
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
 

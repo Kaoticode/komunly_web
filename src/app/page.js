@@ -4,7 +4,8 @@ import Counter from '@/components/landing-components/Counter'
 import Servicios from '@/components/landing-components/Servicios'
 import { Footer } from '@/components/Footer'
 
-export default function Home() {
+
+export default function Home () {
   return (
     <>
       <main>
@@ -15,5 +16,6 @@ export default function Home() {
       </main>
       <Footer />
     </>
+
   )
 }
