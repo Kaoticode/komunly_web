@@ -7,7 +7,7 @@ import { CheckIcon } from "@heroicons/react/24/solid";
 export default function CardServicios({ title, description }) {
   return (
     <motion.div
-      className="p-12 rounded-lg shadow-lg bg-gradient-to-br from-[#414b48] from-0% via-[#121542] to-[#20356a] hover:bg-gradient-to-br hover:from-[#9cb067] hover:from-0% hover:via-[#647090] hover:to-[#4b82bb]"
+      className="p-12 rounded-lg shadow-lg bg-gradient-to-br from-komunly-green-muted from-0% via-komunly-blue-navy to-komunly-blue-ocean hover:bg-gradient-to-br hover:from-komunly-green-sage hover:from-0% hover:via-komunly-blue-steel hover:to-komunly-blue-sky"
       initial={{ opacity: 0, y: -150 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}

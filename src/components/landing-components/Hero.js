@@ -52,7 +52,7 @@ export default function Hero() {
               </span>
             </h1>
           </motion.div>
-          <p className="mb-8 text-lg text-gray-300">
+          <p className="mb-8 text-lg text-komunly-gray-semilight">
             Nuestra plataforma ofrece una amplia gama de funcionalidades, desde
             la publicación de contenido multimedia hasta la realización de
             transferencias entre usuarios y la creación de eventos.
@@ -79,3 +79,8 @@ export default function Hero() {
               Entrar desde el navegador
             </Link>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}

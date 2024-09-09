@@ -5,7 +5,7 @@ export default function Servicios() {
   return (
     <div className="flex flex-col items-center justify-center my-24 mb-0 lg:my-36 lg:mb-0">
       <Subtitle text="Servicios" />
-      <div className="m-12 mt-0 lg:m-36 lg:mt-0 grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="m-12 mt-0 lg:m-36 lg:mb-16 lg:mt-0 grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-5">
         <CardServicios
           title="Publica contenido multimedia"
           description="Comparte imágenes y videos de la mejor calidad con tu comunidad. Conviértete en un Kreator y accede a eventos exclusivos por el mundo de parte de Komunly."
