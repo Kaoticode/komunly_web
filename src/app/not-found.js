@@ -11,8 +11,7 @@ export default function NotFound() {
           href="/"
           className="outline outline-2 outline-komunly-gray-light px-5 py-2 rounded-3xl hover:bg-komunly-gray-medium transition-all hover:outline-white hover:outline-2"
         >
-          {" "}
-          Vuelve al inicio{" "}
+          Vuelve al inicio
         </Link>
       </div>
     </div>
