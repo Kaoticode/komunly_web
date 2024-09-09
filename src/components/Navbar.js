@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Inicio", href: "/" },
-  { name: "Calendario", href: "#Nosotros" },
-  { name: "Noticias", href: "#Servicios" },
+  { name: "Calendario", href: "/Nosotros" },
+  { name: "Noticias", href: "/Servicios" },
 ];
 
 export default function Navbar() {
@@ -39,7 +39,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-white leading-6 hover:text-[#54b0f9] hover:transition-all"
+                className="text-white leading-6 hover:text-komunly-blue-light hover:transition-all"
               >
                 {item.name}
               </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
 
             <Link
               href="/Auth"
-              className="flex bg-[#54b0f9] shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:bg-[#296596] hover:-translate-y-1 hover:scale-100 duration-300"
+              className="flex bg-komunly-blue-light shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:bg-komunly-blue-dark hover:-translate-y-1 hover:scale-100 duration-300"
             >
               Autenticación
             </Link>
@@ -79,7 +79,7 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-[#210246] hover:text-white"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-komunly-purple-dark hover:text-white"
                     >
                       {item.name}
                     </Link>
@@ -88,7 +88,7 @@ export default function Navbar() {
                 <div className="py-6">
                   <Link
                     href="/Auth"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-[#210246] hover:text-white"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-komunly-purple-dark hover:text-white"
                   >
                     Autenticación
                   </Link>
