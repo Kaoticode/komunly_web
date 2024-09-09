@@ -7,7 +7,7 @@ export default function NotFound() {
             <Navbar/>
             <div className='h-screen flex flex-col justify-center items-center gap-7'>
             <h1 className='text-3xl'>Página no encontrada – 404!</h1>
-                <Link href="/">Vuelve al inicio</Link>
+            <Link href="/" className="outline outline-2 outline-gray-500 px-5 py-2 rounded-3xl hover:bg-gray-400/10 transition-all hover:outline-white hover:outline-2" > Vuelve al inicio </Link>
             </div>
         </div>
     )
