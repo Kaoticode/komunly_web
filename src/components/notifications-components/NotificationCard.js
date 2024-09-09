@@ -8,7 +8,7 @@ export const NotificationCard = () => {
       />
       <div className="flex flex-col">
         <h3 className="text-lg">Name</h3>
-        <p className="text-gray-500">
+        <p className="text-komunly-gray-medium">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
           quod.
         </p>
