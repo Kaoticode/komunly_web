@@ -5,14 +5,35 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
-const navigation = [
+const preAuthNavigation = [
   { name: "Inicio", href: "/" },
-  { name: "Calendario", href: "/Nosotros" },
-  { name: "Noticias", href: "/Servicios" },
+  { name: "Calendario", href: "/calendario" },
+  { name: "Noticias", href: "/noticias" },
+  {
+    name: "Autenticación",
+    href: "/Auth",
+    customStyle:
+      "flex bg-komunly-blue-light shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:bg-komunly-blue-dark hover:-translate-y-1 hover:scale-100 duration-300",
+  },
+];
+
+const postAuthNavigation = [
+  { name: "Inicio", href: "/" },
+  { name: "Explorar", href: "/explorar" },
+  { name: "Notificaciones", href: "/notificaciones" },
+  { name: "Transacciones", href: "/transacciones" },
+  {
+    name: "Perfil",
+    href: "/perfil",
+    customStyle:
+      "flex bg-komunly-blue-light shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:bg-komunly-blue-dark hover:-translate-y-1 hover:scale-100 duration-300",
+  },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  //Falta añadir la lógica de autenticación
+  const [userAuthenticated, setUserAuthenticated] = useState(false);
 
   return (
     <div>
@@ -29,35 +50,42 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center rounded-md p-3 text-white"
-            >
+              className="-m-2.5 inline-flex items-center rounded-md p-3 text-white">
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
           <div className="hidden items-center lg:flex lg:gap-x-6">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-white leading-6 hover:text-komunly-blue-light hover:transition-all"
-              >
-                {item.name}
-              </Link>
-            ))}
-
-            <Link
-              href="/Auth"
-              className="flex bg-komunly-blue-light shadow-2xl p-2.5 px-5 rounded-xl text-base font-semibold leading-6 text-white items-center transition ease-in-out delay-150 hover:bg-komunly-blue-dark hover:-translate-y-1 hover:scale-100 duration-300"
-            >
-              Autenticación
-            </Link>
+            {userAuthenticated
+              ? postAuthNavigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={
+                      item.customStyle
+                        ? item.customStyle
+                        : "text-white leading-6 hover:text-komunly-blue-light hover:transition-all"
+                    }>
+                    {item.name}
+                  </Link>
+                ))
+              : preAuthNavigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={
+                      item.customStyle
+                        ? item.customStyle
+                        : "text-white leading-6 hover:text-komunly-blue-light hover:transition-all"
+                    }>
+                    {item.name}
+                  </Link>
+                ))}
           </div>
         </nav>
         <Dialog
           open={mobileMenuOpen}
           onClose={setMobileMenuOpen}
-          className="lg:hidden"
-        >
+          className="lg:hidden">
           <div className="fixed inset-0 z-50" />
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-komunly-gray-darkest/10">
             <div className="flex items-center justify-between">
@@ -67,29 +95,43 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="-m-2.5 rounded-md p-2.5 text-komunly-gray-dark"
-              >
+                className="-m-2.5 rounded-md p-2.5 text-komunly-gray-dark">
                 <XMarkIcon aria-hidden="true" className="h-6 w-6" />
               </button>
             </div>
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-komunly-gray-medium/10">
                 <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-komunly-gray-darkest hover:bg-komunly-purple-dark hover:text-white"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  {userAuthenticated
+                    ? postAuthNavigation.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className={
+                            item.customStyle
+                              ? item.customStyle
+                              : "text-white leading-6 hover:text-komunly-blue-light hover:transition-all"
+                          }>
+                          {item.name}
+                        </Link>
+                      ))
+                    : preAuthNavigation.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className={
+                            item.customStyle
+                              ? item.customStyle
+                              : "text-white leading-6 hover:text-komunly-blue-light hover:transition-all"
+                          }>
+                          {item.name}
+                        </Link>
+                      ))}
                 </div>
                 <div className="py-6">
                   <Link
                     href="/Auth"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-komunly-gray-darkest hover:bg-komunly-purple-dark hover:text-white"
-                  >
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-komunly-gray-darkest hover:bg-komunly-purple-dark hover:text-white">
                     Autenticación
                   </Link>
                 </div>
