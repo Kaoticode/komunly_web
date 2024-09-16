@@ -1,9 +1,12 @@
 import React from 'react'
-import BlockUsers from './components/block-users'
-function Blocks () {
+import BlockedUsers from './components/block-users'
+async function Blocks ({ searchParams }) {
+  const page = searchParams.page || '1'
+  console.log(page)
+
   return (
     <>
-    <BlockUsers/>
+    <BlockedUsers page={page}/>
     </>
 
   )
