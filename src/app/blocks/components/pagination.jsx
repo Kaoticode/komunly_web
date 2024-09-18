@@ -2,24 +2,28 @@
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import React from 'react'
-import { actionBlock } from '../actions/block'
-
+import React, { useEffect } from 'react'
+/* import { actionBlock } from '../actions/block'
+/* const toBlockUser = '66e19846753d8b2ce30a1565' */
 function Pagination ({ currentPage, totalPages }) {
-  const route = useRouter()
-  if (currentPage === totalPages) {
-    route.push(`/blocks?page=${totalPages}`)
-  }
-  const handleBlock = async () => {
-    await actionBlock()
-  }
+  const router = useRouter()
+
+  useEffect(() => {
+    if (currentPage === totalPages) {
+      router.push(`/blocks?page=${totalPages}`)
+    }
+  }, [currentPage, totalPages, router])
+
+  /* const handleBlock = async () => {
+    await actionBlock(toBlockUser)
+  } */
   const handlePrevPage = (page) => {
     const prevPage = (Number(page) - 1)
-    route.push(`/blocks?page=${prevPage}`)
+    router.push(`/blocks?page=${prevPage}`)
   }
   const handleNextPage = (page) => {
     const nextPage = (Number(page) + 1)
-    route.push(`/blocks?page=${nextPage}`)
+    router.push(`/blocks?page=${nextPage}`)
   }
 
   return (
@@ -49,7 +53,7 @@ function Pagination ({ currentPage, totalPages }) {
         <span className="sr-only">Página siguiente</span>
       </Button>
     </div>
-    <Button onClick={handleBlock} className='bg-komunly-blue-light text-komunly-gray-semilight flex items-center justify-center'>Bloquear</Button>
+
     </>
   )
 }

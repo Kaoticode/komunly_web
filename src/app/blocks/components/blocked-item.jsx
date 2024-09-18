@@ -3,11 +3,14 @@ import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { actionUnBlock } from '../actions/unblock'
+
 function BlockedUserItem ({ user }) {
   const handleUnblock = async (userId) => {
     await actionUnBlock(userId)
   }
+
   return (
+    <>
      <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2 sm:p-3 rounded-md bg-komunly-blue-ocean bg-opacity-30 hover:bg-opacity-50 transition-colors">
       <div className="flex items-center space-x-3 mb-2 sm:mb-0">
         <Avatar className="w-8 h-8 sm:w-10 sm:h-10">
@@ -23,11 +26,13 @@ function BlockedUserItem ({ user }) {
         onClick = {() => handleUnblock(user._id)}
         variant="outline"
         size="sm"
-        className="text-xs sm:text-sm hover:bg-opacity-75  bg-komunly-green-deep text-komunly-gray-semilight transition-colors w-full sm:w-auto mt-2 sm:mt-0"
+        className='text-xs sm:text-sm hover:bg-opacity-75  bg-komunly-green-deep text-komunly-gray-semilight transition-colors w-full sm:w-auto mt-2 sm:mt-0'
       >
-        Desbloquear
+       Desbloquear
       </Button>
     </div>
+    </>
+
   )
 }
 
