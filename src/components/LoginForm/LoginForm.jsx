@@ -8,6 +8,7 @@ const LoginForm = ({ toggleForm }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
+  const [id, setId] = useState("");
   const [access_token, setAccess_token] = useState("");
   const [refresh_token, setRefresh_token] = useState("");
 
@@ -22,8 +23,10 @@ const LoginForm = ({ toggleForm }) => {
       form.current.classList.remove("hidden-auth");
       setResponse("");
       //cookies
+      Cookies.set("id", id, { expires: 1 });
       Cookies.set("access_token", access_token, { expires: 1 });
       Cookies.set("refresh_token", refresh_token, { expires: 1 });
+      console.log("id:", id);
       console.log("access_token:", access_token);
       console.log("refresh_token:", refresh_token);
     }
@@ -36,7 +39,7 @@ const LoginForm = ({ toggleForm }) => {
     form.current.classList.add("hidden-auth");
 
     // Aquí iría la lógica para enviar los datos del formulario al backend
-    Login(username, password, setResponse, setAccess_token, setRefresh_token);
+    Login(username, password, setResponse,setId, setAccess_token, setRefresh_token);
   };
 
   return (
