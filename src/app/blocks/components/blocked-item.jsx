@@ -4,9 +4,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { actionUnBlock } from '../actions/unblock'
 
-function BlockedUserItem ({ user }) {
+function BlockedUserItem ({ user, accessToken, refToken }) {
   const handleUnblock = async (userId) => {
-    await actionUnBlock(userId)
+    await actionUnBlock(userId, accessToken, refToken)
   }
 
   return (

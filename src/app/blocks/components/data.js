@@ -1,6 +1,4 @@
 export const API_URL = 'https://21qjx3x0-3004.uks1.devtunnels.ms'
-export const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZGYxMWM2NzUzZDhiMmNlMzBhMTQyYyIsImlhdCI6MTcyNjY3NzIzMywiZXhwIjoxNzI2NjgwODMzfQ.oVOyB-hG0in3CNk-X0Ke9Io77fFYvjmAowv9WiSecVI'
-export const refToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZGYxMWM2NzUzZDhiMmNlMzBhMTQyYyIsImlhdCI6MTcyNjY3NzIzMywiZXhwIjoxNzI3MjgyMDMzfQ.mAghbcIXiF5TjjU2H8L7MrC3zqdREwLZJ0G_Kwgdy0s'
 
 export const refreshAccessToken = async (refToken) => {
   const response = await fetch(`${API_URL}/auth/refreshTokens`, {
@@ -20,7 +18,7 @@ export const refreshAccessToken = async (refToken) => {
   return newAccessToken
 }
 
-export const blockedUsers = async (page) => {
+export const blockedUsers = async (page, accessToken, refToken) => {
   try {
     const response = await fetch(`${API_URL}/blocks?page=${page}&limit=5`, {
       method: 'GET',
@@ -56,7 +54,7 @@ export const blockedUsers = async (page) => {
   }
 }
 
-export const blockUser = async (userToBlock) => {
+export const blockUser = async (userToBlock, accessToken, refToken) => {
   try {
     const response = await fetch(`${API_URL}/blocks/`, {
       method: 'POST',
@@ -92,7 +90,7 @@ export const blockUser = async (userToBlock) => {
   }
 }
 
-export const unBlockUser = async (blockedId) => {
+export const unBlockUser = async (blockedId, accessToken, refToken) => {
   try {
     const response = await fetch(`${API_URL}/blocks/${blockedId}`, {
       method: 'DELETE',

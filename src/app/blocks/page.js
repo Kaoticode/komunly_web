@@ -5,19 +5,17 @@ import { UserX } from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import Pagination from './components/pagination'
 import ErrorComponent from './components/error-data'
+import { cookies } from 'next/headers'
 async function Blocks ({ searchParams }) {
-  const page = parseInt(searchParams.page) || 1
-  const { data, currentPage, totalPages, totalItems } = await blockedUsers(
-    page
-  )
+  const cookieStore = cookies()
+  const accessToken = cookieStore.get('access_token').value
+  const refToken = cookieStore.get('refresh_token').value
 
-  let updatedCurrentPage
+  const page = parseInt(searchParams.page) || 1
+  const { data, currentPage, totalPages, totalItems } = await blockedUsers(page, accessToken, refToken)
+
+  const updatedCurrentPage = Math.min(currentPage, totalPages)
   const blockedList = data
-  if (currentPage > totalPages) {
-    updatedCurrentPage = totalPages
-  } else {
-    updatedCurrentPage = currentPage
-  }
 
   return (
     <>
@@ -36,7 +34,11 @@ async function Blocks ({ searchParams }) {
                   ? (
                   <div className="space-y-2 sm:space-y-3">
                     {blockedList.map((user) => (
-                      <BlockedUserItem key={user._id} user={user} />
+                      <BlockedUserItem
+                      key={user._id}
+                      user={user}
+                      accessToken={accessToken}
+                      refToken={refToken}/>
                     ))}
                   </div>
                     )
