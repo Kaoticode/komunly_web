@@ -21,7 +21,7 @@ async function Blocks ({ searchParams }) {
     <>
       {data
         ? (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-komunly-purple-darkest to-komunly-blue-navy p-2 sm:p-4 md:p-6">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-komunly-purple-darkest to-komunly-blue-navy p-2 sm:p-4 md:p-6 relative">
           <div className="w-full max-w-md bg-komunly-blue-deep bg-opacity-40 backdrop-filter backdrop-blur-md rounded-lg shadow-xl border border-komunly-blue-steel">
             <div className="p-3 sm:p-4 md:p-6">
               <h2 className="flex items-center justify-center text-lg sm:text-xl md:text-2xl font-bold text-komunly-gray-semilight mb-4 sm:mb-6">
@@ -52,6 +52,8 @@ async function Blocks ({ searchParams }) {
               <Pagination
                 currentPage={updatedCurrentPage}
                 totalPages={totalPages}
+                accessToken={accessToken}
+                refToken={refToken}
               />
             </div>
           </div>

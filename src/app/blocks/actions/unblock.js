@@ -3,7 +3,8 @@ import { revalidatePath } from 'next/cache'
 import { unBlockUser } from '../components/data'
 
 export const actionUnBlock = async (blockId, accessToken, refToken) => {
-  const res = await unBlockUser(blockId, accessToken, refToken)
-  console.log(res)
+  const unBlockOK = true
+  await unBlockUser(blockId, accessToken, refToken)
   revalidatePath('/blocks')
+  return { unBlockOK }
 }

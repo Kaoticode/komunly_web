@@ -4,8 +4,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
 /* import { actionBlock } from '../actions/block'
-/* const toBlockUser = '66e19846753d8b2ce30a1565' */
-function Pagination ({ currentPage, totalPages }) {
+ const toBlockUser = '66e199b0753d8b2ce30a157a' */
+function Pagination ({ currentPage, totalPages, accessToken, refToken }) {
   const router = useRouter()
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function Pagination ({ currentPage, totalPages }) {
   }, [currentPage, totalPages, router])
 
   /* const handleBlock = async () => {
-    await actionBlock(toBlockUser)
+    await actionBlock(toBlockUser, accessToken, refToken)
   } */
   const handlePrevPage = (page) => {
     const prevPage = (Number(page) - 1)
@@ -31,7 +31,7 @@ function Pagination ({ currentPage, totalPages }) {
     <div className="flex items-center justify-between mt-4 sm:mt-6">
       <Button
         onClick={() => handlePrevPage(currentPage)}
-        disabled={currentPage === 1}
+        disabled={currentPage <= 1}
         size="icon"
         variant="outline"
         className="w-8 h-8 sm:w-10 sm:h-10 bg-komunly-blue-ocean bg-opacity-50 border-komunly-blue-steel text-komunly-gray-semilight hover:bg-komunly-blue-sky hover:bg-opacity-70 hover:text-komunly-gray-semilight disabled:opacity-50"
@@ -53,7 +53,7 @@ function Pagination ({ currentPage, totalPages }) {
         <span className="sr-only">Página siguiente</span>
       </Button>
     </div>
-
+{/* <Button onClick={ handleBlock } className='bg-komunly-blue-light mt-4'>Bloquear usuario</Button> */}
     </>
   )
 }
