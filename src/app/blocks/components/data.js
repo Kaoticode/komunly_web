@@ -1,14 +1,121 @@
-export const initialBlockedUsers = [
-  { id: '1', name: 'Ana García', username: '@anagarcia', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '2', name: 'Carlos López', username: '@carloslopez', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '3', name: 'Elena Martínez', username: '@elenamartinez', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '4', name: 'David Rodríguez', username: '@davidrodriguez', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '5', name: 'Isabel Fernández', username: '@isabelfernandez', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '6', name: 'Miguel Sánchez', username: '@miguelsanchez', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '7', name: 'Laura Torres', username: '@lauratorres', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '8', name: 'Javier Ruiz', username: '@javierruiz', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '9', name: 'Carmen Vega', username: '@carmenvega', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '10', name: 'Roberto Molina', username: '@robertomolina', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '11', name: 'Sofía Morales', username: '@sofiamorales', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' },
-  { id: '12', name: 'Antonio Herrera', username: '@antonioherrera', avatarUrl: '/TwemojiWhiteCircle.svg?height=40&width=40' }
-]
+export const API_URL = 'https://21qjx3x0-3004.uks1.devtunnels.ms'
+
+export const refreshAccessToken = async (refToken) => {
+  const response = await fetch(`${API_URL}/auth/refreshTokens`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ refreshToken: refToken })
+  })
+  if (!response.ok) {
+    console.error('No se pudo refrescar el accessToken')
+    return null
+  }
+  const data = await response.json()
+  const newAccessToken = data.access_token
+  return newAccessToken
+}
+
+export const blockedUsers = async (page, accessToken, refToken) => {
+  try {
+    const response = await fetch(`${API_URL}/blocks?page=${page}&limit=5`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      }
+
+    })
+    if (response.status === 401) {
+      const newAccessToken = await refreshAccessToken(refToken)
+      if (newAccessToken) {
+        const newResponse = await fetch(`${API_URL}/blocks?page=${page}&limit=5`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${newAccessToken}`
+          }
+        })
+        const data = newResponse.json()
+        return data
+      } else {
+        throw new Error('No se pudo obtener el Access Token')
+      }
+    }
+    const data = await response.json()
+    return data
+  } catch (e) {
+    console.error('No se pudieron obtener los datos', e)
+    return []
+  }
+}
+
+export const blockUser = async (userToBlock, accessToken, refToken) => {
+  try {
+    const response = await fetch(`${API_URL}/blocks/`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      },
+      body: JSON.stringify({ block_to: userToBlock })
+    })
+    if (response.status === 401) {
+      const newAccessToken = await refreshAccessToken(refToken)
+      if (newAccessToken) {
+        const newResponse = await fetch(`${API_URL}/blocks/`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${newAccessToken}`
+          },
+          body: JSON.stringify({ block_to: userToBlock })
+        })
+        const data = newResponse.json()
+        return data
+      } else {
+        throw new Error('No se pudo obtener el Access Token')
+      }
+    }
+    const data = await response.json()
+    return data
+  } catch (e) {
+    console.error('No se pudo completar la accion, intente de nuevo', e)
+  }
+}
+
+export const unBlockUser = async (blockedId, accessToken, refToken) => {
+  try {
+    const response = await fetch(`${API_URL}/blocks/${blockedId}`, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
+    if (response.status === 401) {
+      const newAccessToken = await refreshAccessToken(refToken)
+      if (newAccessToken) {
+        await fetch(`${API_URL}/blocks/${blockedId}`, {
+          method: 'DELETE',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${newAccessToken}`
+          }
+        })
+      } else {
+        throw new Error('No se pudo obtener el Access Token')
+      }
+    }
+  } catch (e) {
+    console.error('No se pudo completar la accion, intente de nuevo', e)
+  }
+}
